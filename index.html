@@ -1,0 +1,1667 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>PULSE Training Club | Musculação, funcional e performance</title>
+  <meta name="description" content="PULSE Training Club: 1.200 m² de estrutura, 20 treinadores e aberto 7 dias por semana. Musculação, funcional, cross, spinning, HIIT e personal. Agende seu treino grátis." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0A0B0B" />
+  <meta property="og:title" content="PULSE Training Club — Não treine apenas. Evolua." />
+  <meta property="og:description" content="Seu primeiro treino é por nossa conta. Conheça a estrutura e treine grátis por um dia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1637666062717-1c6bcfa4a4df?w=1200&h=630&fit=crop&q=70" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23C8FF2E'/%3E%3Cpath d='M3 17h7l2-4 3 10 3-15 3 9h8' fill='none' stroke='%230A0B0B' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1637666062717-1c6bcfa4a4df?w=1920&q=70&auto=format&fit=crop" fetchpriority="high" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
+
+  <style>
+    /* ============ Tokens ============ */
+    :root {
+      --ink: #0A0B0B;        /* preto */
+      --graphite: #141617;   /* grafite */
+      --steel: #202427;      /* grafite claro / superfícies */
+      --line: rgba(240, 241, 236, .09);
+      --line-strong: rgba(240, 241, 236, .18);
+      --mute: #8B9094;       /* cinza */
+      --soft: #B9BDBF;
+      --chalk: #F0F1EC;      /* branco */
+      --volt: #C8FF2E;       /* verde-lima */
+      --volt-dim: rgba(200, 255, 46, .14);
+
+      --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+      --body: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+      --gutter: clamp(16px, 4vw, 56px);
+      --max: 1440px;
+      --nav-h: 72px;
+      --ease: cubic-bezier(.2, .7, .1, 1);
+      --fast: 180ms;
+    }
+
+    /* ============ Base ============ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--chalk);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    ::selection { background: var(--volt); color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--volt); outline-offset: 3px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+    .section { padding-block: clamp(88px, 12vw, 168px); position: relative; }
+
+    /* grão discreto sobre a página inteira */
+    .grain {
+      position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    /* grid de colunas finas usado como textura em seções escuras */
+    .has-grid { position: relative; }
+    .has-grid::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(to right, var(--line) 1px, transparent 1px);
+      background-size: calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 6) 100%;
+      background-position: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter))) 0;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+              mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    }
+    .has-grid > * { position: relative; z-index: 1; }
+
+    /* ============ Tipografia ============ */
+    .display {
+      font-family: var(--display);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: .86;
+      letter-spacing: -.005em;
+      margin: 0;
+    }
+    .h2 { font-size: clamp(52px, 7.6vw, 124px); }
+    .h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(30px, 2.6vw, 40px); line-height: .95; margin: 0; letter-spacing: .005em; }
+    .lead { font-size: clamp(18px, 1.35vw, 21px); line-height: 1.55; color: var(--soft); max-width: 46ch; margin: 0; }
+    .mono { font-family: var(--mono); font-size: 13px; letter-spacing: .02em; }
+    .volt { color: var(--volt); }
+
+    .section-head { display: grid; grid-template-columns: 1fr; gap: 28px; margin-bottom: clamp(48px, 6vw, 88px); }
+    @media (min-width: 960px) {
+      .section-head { grid-template-columns: 1.35fr 1fr; align-items: end; gap: 64px; }
+    }
+
+    /* ============ Botões ============ */
+    .btn {
+      --bg: var(--volt); --fg: var(--ink);
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      min-height: 56px; padding: 0 28px;
+      background: var(--bg); color: var(--fg);
+      border: 1.5px solid var(--bg);
+      font-family: var(--body); font-weight: 600; font-size: 16px; letter-spacing: .01em;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+      transition: background var(--fast) var(--ease), color var(--fast) var(--ease), border-color var(--fast) var(--ease), transform var(--fast) var(--ease);
+      white-space: nowrap;
+    }
+    .btn svg { width: 18px; height: 18px; transition: transform var(--fast) var(--ease); }
+    .btn:hover { background: var(--chalk); border-color: var(--chalk); }
+    .btn:hover svg { transform: translateX(4px); }
+    .btn:active { transform: translateY(1px); }
+    .btn--ghost { --bg: transparent; --fg: var(--chalk); border-color: var(--line-strong); }
+    .btn--ghost { position: relative; }
+    .btn--ghost::after {
+      content: ""; position: absolute; right: -1.5px; bottom: -1.5px; width: 13px; height: 13px; pointer-events: none;
+      background: linear-gradient(to top left, transparent calc(50% - 1px), var(--line-strong) calc(50% - 1px), var(--line-strong) calc(50% + .5px), transparent calc(50% + .5px));
+      transition: background var(--fast) var(--ease);
+    }
+    .btn--ghost:hover { background: transparent; border-color: var(--volt); color: var(--volt); }
+    .btn--ghost:hover::after { background: linear-gradient(to top left, transparent calc(50% - 1px), var(--volt) calc(50% - 1px), var(--volt) calc(50% + .5px), transparent calc(50% + .5px)); }
+    .btn--dark { --bg: var(--ink); --fg: var(--volt); }
+    .btn--dark:hover { background: var(--graphite); border-color: var(--graphite); color: var(--chalk); }
+    .btn--sm { min-height: 44px; padding: 0 20px; font-size: 15px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%); }
+
+    .arrow-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 600; font-size: 15px; color: var(--chalk);
+      background: none; border: 0; padding: 6px 0;
+      border-bottom: 1.5px solid var(--volt);
+      transition: color var(--fast) var(--ease), gap var(--fast) var(--ease);
+    }
+    .arrow-link:hover { color: var(--volt); gap: 14px; }
+    .arrow-link svg { width: 16px; height: 16px; }
+
+    /* ============ Navbar ============ */
+    .nav {
+      position: sticky; top: 0; z-index: 80;
+      height: var(--nav-h);
+      background: var(--ink);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--fast) var(--ease), height var(--fast) var(--ease);
+    }
+    .nav.is-scrolled { border-bottom-color: var(--line); }
+    .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: inline-flex; align-items: center; gap: 12px; }
+    .logo-mark { width: 34px; height: 34px; background: var(--volt); display: grid; place-items: center; flex: none; }
+    .logo-mark svg { width: 26px; height: 26px; }
+    .logo-word { font-family: var(--display); font-weight: 900; font-size: 30px; letter-spacing: .06em; line-height: 1; }
+    .nav-links { display: none; list-style: none; margin: 0; padding: 0; gap: clamp(20px, 2.6vw, 40px); }
+    .nav-links a {
+      position: relative; font-size: 15px; font-weight: 500; color: var(--soft); padding: 8px 0;
+      transition: color var(--fast) var(--ease);
+    }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 1.5px; background: var(--volt);
+      transform: scaleX(0); transform-origin: left; transition: transform 240ms var(--ease);
+    }
+    .nav-links a:hover, .nav-links a.is-active { color: var(--chalk); }
+    .nav-links a:hover::after, .nav-links a.is-active::after { transform: scaleX(1); }
+    .nav-cta { display: none; }
+    .burger {
+      width: 48px; height: 48px; display: grid; place-items: center;
+      background: transparent; border: 1px solid var(--line-strong);
+    }
+    .burger span { display: block; width: 20px; height: 2px; background: var(--chalk); position: relative; transition: background var(--fast); }
+    .burger span::before, .burger span::after { content: ""; position: absolute; left: 0; width: 20px; height: 2px; background: var(--chalk); transition: transform 240ms var(--ease); }
+    .burger span::before { top: -6px; }
+    .burger span::after { top: 6px; }
+    .burger[aria-expanded="true"] span { background: transparent; }
+    .burger[aria-expanded="true"] span::before { transform: translateY(6px) rotate(45deg); }
+    .burger[aria-expanded="true"] span::after { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed; inset: var(--nav-h) 0 0 0; z-index: 79;
+      background: var(--ink);
+      padding: 32px var(--gutter) calc(32px + env(safe-area-inset-bottom));
+      display: flex; flex-direction: column; justify-content: space-between;
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: opacity 220ms var(--ease), transform 220ms var(--ease), visibility 0s linear 220ms;
+    }
+    .mobile-menu.is-open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .mobile-menu ul { list-style: none; margin: 0; padding: 0; }
+    .mobile-menu li { border-bottom: 1px solid var(--line); }
+    .mobile-menu li a { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; font-family: var(--display); font-weight: 800; font-size: 44px; text-transform: uppercase; line-height: 1; }
+    .mobile-menu li a:hover { color: var(--volt); }
+    .mobile-menu .btn { width: 100%; }
+
+    @media (min-width: 1024px) {
+      .nav-links, .nav-cta { display: flex; }
+      .burger, .mobile-menu { display: none; }
+    }
+
+    /* ============ Hero ============ */
+    .hero {
+      position: relative;
+      min-height: calc(100svh - var(--nav-h));
+      display: flex; flex-direction: column; justify-content: flex-end;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero-media { position: absolute; inset: -6% 0 0 0; z-index: -2; will-change: transform; }
+    .hero-media img {
+      width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%;
+      filter: grayscale(.35) contrast(1.15) brightness(.72);
+      animation: heroZoom 2.4s var(--ease) both;
+    }
+    @keyframes heroZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        linear-gradient(to top, var(--ink) 0%, rgba(10,11,11,.86) 30%, rgba(10,11,11,.35) 62%, rgba(10,11,11,.6) 100%),
+        linear-gradient(to right, rgba(10,11,11,.75) 0%, rgba(10,11,11,0) 60%);
+    }
+    .hero-grid::before { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 30%); mask-image: linear-gradient(to bottom, transparent, #000 30%); }
+
+    /* assinatura: traçado de ECG */
+    .ecg { position: absolute; left: 0; right: 0; width: 100%; pointer-events: none; overflow: visible; }
+    .ecg path { fill: none; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .ecg .ecg-base { stroke: var(--chalk); stroke-opacity: .16; stroke-width: 1.5; }
+    .ecg .ecg-sweep {
+      stroke: var(--volt); stroke-width: 2.5;
+      stroke-dasharray: 90 910; stroke-dashoffset: 1000;
+      filter: drop-shadow(0 0 6px rgba(200,255,46,.9));
+      animation: sweep 3.2s linear infinite;
+    }
+    .ecg .ecg-draw {
+      stroke: var(--volt); stroke-opacity: .5; stroke-width: 1.5;
+      stroke-dasharray: 1000; stroke-dashoffset: 1000;
+      animation: draw 1.8s var(--ease) .3s forwards;
+    }
+    @keyframes sweep { to { stroke-dashoffset: 0; } }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .hero-top { position: relative; isolation: isolate; }
+    .hero .ecg { top: -10%; height: 52%; left: 50%; width: 100vw; transform: translateX(-50%); z-index: -1; }
+
+    .hero-body { position: relative; z-index: 1; padding-top: clamp(64px, 10vh, 120px); }
+    .hero-title { font-size: clamp(64px, min(11vw, 20vh), 184px); line-height: .82; }
+    .hero-title .line { display: block; overflow: hidden; padding: .14em 0 .02em; margin-top: -.14em; }
+    .hero-title .line > span { display: inline-block; animation: rise .9s var(--ease) both; }
+    .hero-title .line:nth-child(2) > span { animation-delay: .08s; }
+    .hero-title .line:nth-child(3) > span { animation-delay: .16s; }
+    @keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+    .hero-title { position: relative; z-index: 1; }
+
+    .hero-top { display: grid; gap: 28px; }
+    .hero-copy { animation: fadeUp .8s var(--ease) .45s both; }
+    .hero-copy .lead { color: var(--chalk); opacity: .86; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @media (max-width: 1023px) {
+      .hero-body { padding-top: 150px; }
+      .hero .ecg { top: -128px; height: 110px; }
+    }
+    @media (min-width: 1024px) {
+      .hero-top { grid-template-columns: 1fr minmax(340px, 420px); align-items: end; gap: 48px; }
+      .hero-ctas .btn { padding: 0 22px; }
+    }
+    .stats {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      margin-top: clamp(40px, 6vw, 72px);
+      border-top: 1px solid var(--line-strong);
+      animation: fadeUp .8s var(--ease) .6s both;
+    }
+    .stat { padding: 20px 0 24px; display: flex; flex-direction: column; gap: 6px; }
+    .stat:nth-child(2n) { padding-left: 20px; border-left: 1px solid var(--line); }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .stat-num { font-family: var(--display); font-weight: 800; font-size: clamp(40px, 4.4vw, 68px); line-height: .9; font-variant-numeric: tabular-nums; }
+    .stat-num small { font-size: .5em; margin-left: 4px; color: var(--volt); }
+    .stat-label { font-family: var(--mono); font-size: 13px; color: var(--mute); text-transform: uppercase; letter-spacing: .06em; }
+    @media (min-width: 760px) {
+      .stats { grid-template-columns: repeat(4, 1fr); }
+      .stat { padding: 24px 24px 32px; }
+      .stat:first-child { padding-left: 0; }
+      .stat:nth-child(n) { border-top: 0; border-left: 1px solid var(--line); }
+      .stat:first-child { border-left: 0; }
+    }
+    .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--volt); margin-right: 8px; vertical-align: 1px; box-shadow: 0 0 0 0 rgba(200,255,46,.6); animation: beat 1.1s ease-out infinite; }
+    @keyframes beat { 0% { box-shadow: 0 0 0 0 rgba(200,255,46,.55); } 70%, 100% { box-shadow: 0 0 0 10px rgba(200,255,46,0); } }
+
+    /* ============ Manifesto ============ */
+    .manifesto { overflow: hidden; background: var(--ink); }
+    .bg-words {
+      position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 0; pointer-events: none; z-index: 0; user-select: none;
+    }
+    .bg-words span {
+      font-family: var(--display); font-weight: 900; text-transform: uppercase;
+      font-size: clamp(140px, 22vw, 380px); line-height: .82; white-space: nowrap;
+      color: transparent; -webkit-text-stroke: 1.5px rgba(240,241,236,.08);
+      will-change: transform;
+    }
+    .bg-words span:nth-child(2) { -webkit-text-stroke-color: rgba(200,255,46,.14); }
+    .manifesto-inner { position: relative; z-index: 1; display: grid; gap: clamp(40px, 6vw, 80px); }
+    .manifesto h2 { font-size: clamp(56px, 9vw, 150px); max-width: 11ch; }
+    .manifesto h2 em { font-style: normal; color: var(--volt); }
+    .manifesto-cols { display: grid; gap: 40px; }
+    .manifesto-text p { margin: 0 0 1.1em; color: var(--soft); max-width: 54ch; font-size: clamp(17px, 1.3vw, 20px); }
+    .manifesto-text p:first-child { color: var(--chalk); font-size: clamp(20px, 1.7vw, 26px); line-height: 1.45; }
+    .pillars { display: grid; border-top: 1px solid var(--line-strong); }
+    .pillar { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .pillar strong { font-family: var(--display); font-weight: 800; font-size: 34px; text-transform: uppercase; line-height: 1; }
+    .pillar span { color: var(--mute); font-size: 16px; }
+    .manifesto-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; }
+    .manifesto-photo img { width: 100%; height: 115%; object-fit: cover; filter: grayscale(1) contrast(1.2) brightness(.8); will-change: transform; }
+    .manifesto-photo::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px var(--line); }
+    .manifesto-photo figcaption {
+      position: absolute; left: 0; bottom: 0; background: var(--volt); color: var(--ink);
+      font-family: var(--mono); font-size: 12px; padding: 8px 12px; text-transform: uppercase; letter-spacing: .06em;
+    }
+    @media (min-width: 960px) {
+      .manifesto-cols { grid-template-columns: 1.1fr .9fr .8fr; align-items: start; gap: 56px; }
+      .manifesto-photo { margin-top: -180px; }
+    }
+
+    /* ============ Modalidades ============ */
+    .modalities { background: var(--graphite); }
+    .mod-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 680px) { .mod-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1080px) {
+      .mod-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .mod-card:nth-child(3n+2) { transform: translateY(56px); }
+      .mod-card:nth-child(3n+2).is-in { transform: translateY(56px); }
+      .mod-grid { padding-bottom: 56px; }
+    }
+    .mod-card {
+      position: relative; overflow: hidden; isolation: isolate;
+      aspect-ratio: 4 / 5; min-height: 460px;
+      background: var(--ink);
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .mod-card img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;
+      filter: grayscale(.85) contrast(1.1) brightness(.75);
+      transform: scale(1.02);
+      transition: transform 900ms var(--ease), filter 500ms var(--ease);
+    }
+    .mod-card::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(to top, rgba(10,11,11,.96) 0%, rgba(10,11,11,.55) 45%, rgba(10,11,11,.05) 75%);
+      transition: background 400ms var(--ease);
+    }
+    .mod-card::after {
+      content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%; background: var(--volt);
+      transform: scaleX(0); transform-origin: left; transition: transform 500ms var(--ease);
+    }
+    .mod-card:hover img, .mod-card:focus-within img { transform: scale(1.1); filter: grayscale(0) contrast(1.1) brightness(.8); }
+    .mod-card:hover::after, .mod-card:focus-within::after { transform: scaleX(1); }
+    .mod-top { position: absolute; top: 20px; left: 24px; right: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .tag { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; padding: 6px 10px; background: rgba(10,11,11,.7); border: 1px solid var(--line-strong); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .meter { display: inline-flex; align-items: center; gap: 8px; }
+    .meter i { display: inline-block; width: 5px; height: 14px; background: rgba(240,241,236,.22); }
+    .meter i.on { background: var(--volt); }
+    .meter-wrap { display: inline-flex; align-items: center; gap: 10px; padding: 6px 10px; background: rgba(10,11,11,.7); border: 1px solid var(--line-strong); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .meter-wrap .mono { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--soft); }
+    .mod-body { padding: 28px 24px; }
+    .mod-body h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(44px, 4vw, 60px); line-height: .9; margin: 0 0 12px; }
+    .mod-body p { margin: 0 0 20px; color: var(--soft); font-size: 16px; max-width: 34ch; }
+    .mod-more {
+      position: absolute; inset: 0; z-index: 2;
+      background: rgba(10,11,11,.97);
+      padding: 72px 24px 28px;
+      display: flex; flex-direction: column;
+      opacity: 0; visibility: hidden; transform: translateY(12px);
+      transition: opacity 260ms var(--ease), transform 260ms var(--ease), visibility 0s linear 260ms;
+    }
+    .mod-card.is-open .mod-more { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .mod-more h4 { font-family: var(--display); font-weight: 900; font-size: 40px; text-transform: uppercase; margin: 0 0 20px; line-height: .9; }
+    .mod-more dl { margin: 0 0 auto; display: grid; gap: 0; }
+    .mod-more dl div { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; }
+    .mod-more dt { font-family: var(--mono); font-size: 12px; color: var(--mute); text-transform: uppercase; letter-spacing: .06em; padding-top: 3px; }
+    .mod-more dd { margin: 0; color: var(--chalk); }
+    .mod-more .row { display: flex; gap: 12px; align-items: center; justify-content: space-between; margin-top: 20px; flex-wrap: wrap; }
+    .mod-close { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; display: grid; place-items: center; background: transparent; border: 1px solid var(--line-strong); }
+    .mod-close:hover { border-color: var(--volt); color: var(--volt); }
+
+    /* ============ Estrutura (galeria) ============ */
+    .structure { overflow: hidden; }
+    .gallery-controls { display: flex; align-items: center; gap: 16px; }
+    .gal-btn { width: 56px; height: 56px; display: grid; place-items: center; background: transparent; border: 1px solid var(--line-strong); transition: border-color var(--fast), color var(--fast), background var(--fast); }
+    .gal-btn:hover:not(:disabled) { border-color: var(--volt); color: var(--volt); }
+    .gal-btn:disabled { opacity: .3; cursor: default; }
+    .gal-btn svg { width: 20px; height: 20px; }
+    .gal-progress { flex: 1; height: 2px; background: var(--line-strong); position: relative; min-width: 80px; }
+    .gal-progress span { position: absolute; left: 0; top: 0; bottom: 0; background: var(--volt); width: 20%; transition: width 200ms linear; }
+    .gal-count { font-family: var(--mono); font-size: 13px; color: var(--mute); min-width: 56px; text-align: right; font-variant-numeric: tabular-nums; }
+
+    .gallery {
+      display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, 86vw);
+      gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+      padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+      scroll-padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+      scrollbar-width: none; cursor: grab;
+      margin-top: 40px;
+    }
+    .gallery::-webkit-scrollbar { display: none; }
+    .gallery.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+    .gallery.is-dragging * { pointer-events: none; }
+    @media (min-width: 760px) { .gallery { grid-auto-columns: minmax(420px, 52vw); gap: 20px; } }
+    @media (min-width: 1200px) { .gallery { grid-auto-columns: 640px; } }
+    .area { scroll-snap-align: start; margin: 0; }
+    .area-media { position: relative; aspect-ratio: 16 / 11; overflow: hidden; background: var(--steel); }
+    .area-media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.6) contrast(1.1) brightness(.72); transition: transform 1.1s var(--ease), filter .5s var(--ease); user-select: none; -webkit-user-drag: none; }
+    .area:hover .area-media img { transform: scale(1.05); filter: grayscale(0) contrast(1.1) brightness(.9); }
+    .area-size { position: absolute; top: 16px; left: 16px; font-family: var(--mono); font-size: 12px; background: var(--volt); color: var(--ink); padding: 6px 10px; letter-spacing: .04em; }
+    .area figcaption { display: grid; grid-template-columns: 1fr; gap: 8px; padding: 22px 0 0; border-top: 1px solid var(--line); margin-top: 0; }
+    .area figcaption strong { font-family: var(--display); font-weight: 800; font-size: 36px; text-transform: uppercase; line-height: .95; }
+    .area figcaption span { color: var(--mute); font-size: 16px; max-width: 46ch; }
+
+    /* ============ Diferenciais ============ */
+    .perks { background: var(--graphite); }
+    .perk-grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line-strong); }
+    .perk { padding: 36px 0; border-bottom: 1px solid var(--line); display: grid; gap: 18px; position: relative; }
+    .perk-icon { width: 56px; height: 56px; display: grid; place-items: center; border: 1px solid var(--line-strong); color: var(--volt); transition: background var(--fast) var(--ease), color var(--fast) var(--ease), border-color var(--fast); }
+    .perk-icon svg { width: 28px; height: 28px; }
+    .perk:hover .perk-icon { background: var(--volt); color: var(--ink); border-color: var(--volt); }
+    .perk h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(34px, 2.8vw, 44px); line-height: .92; margin: 0; }
+    .perk p { margin: 0; color: var(--soft); font-size: 16px; }
+    @media (min-width: 680px) {
+      .perk-grid { grid-template-columns: repeat(2, 1fr); }
+      .perk { padding: 40px 32px 44px 0; }
+      .perk:nth-child(2n) { padding-left: 32px; border-left: 1px solid var(--line); }
+    }
+    @media (min-width: 1080px) {
+      .perk-grid { grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+      .perk { border-bottom: 0; padding: 48px 32px 56px; border-left: 1px solid var(--line); }
+      .perk:first-child { border-left: 0; padding-left: 0; }
+      .perk:nth-child(2n) { padding-left: 32px; }
+    }
+
+    /* ============ Treinadores ============ */
+    .coach-grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+    @media (min-width: 1024px) { .coach-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+    .coach { margin: 0; }
+    .coach-photo { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--steel); }
+    .coach-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.15) brightness(.85); transition: filter .5s var(--ease), transform 1s var(--ease); }
+    .coach:hover .coach-photo img { filter: grayscale(0) contrast(1.05) brightness(.95); transform: scale(1.04); }
+    .coach-photo::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 4px; background: var(--volt); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease); }
+    .coach:hover .coach-photo::after { transform: scaleX(1); }
+    .coach figcaption { padding-top: 18px; display: grid; gap: 4px; }
+    .coach-name { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 2.4vw, 36px); line-height: .95; }
+    .coach-spec { color: var(--soft); font-size: 15px; }
+    .coach-ig { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; color: var(--mute); margin-top: 6px; }
+    .coach-ig svg { width: 15px; height: 15px; color: var(--volt); }
+    @media (max-width: 520px) { .coach-name { font-size: 26px; } .coach-spec { font-size: 14px; } .coach-ig { font-size: 11.5px; } }
+
+    /* ============ Resultados ============ */
+    .results { background: var(--graphite); }
+    .result-grid { display: grid; gap: 16px; }
+    @media (min-width: 900px) { .result-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+    .result {
+      background: var(--ink); border: 1px solid var(--line);
+      padding: 28px; display: flex; flex-direction: column; gap: 24px;
+      transition: border-color var(--fast) var(--ease), transform 300ms var(--ease);
+    }
+    .result:hover { border-color: rgba(200,255,46,.5); transform: translateY(-4px); }
+    .result-metric { font-family: var(--display); font-weight: 900; font-size: clamp(56px, 5.2vw, 84px); line-height: .85; color: var(--volt); margin: 0; }
+    .result-metric small { display: block; font-family: var(--body); font-weight: 600; font-size: 17px; color: var(--chalk); line-height: 1.3; margin-top: 12px; letter-spacing: 0; }
+    .result blockquote { margin: 0; font-size: 17px; line-height: 1.55; color: var(--soft); flex: 1; }
+    .result-who { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .result-who img { width: 56px; height: 56px; object-fit: cover; filter: grayscale(1) contrast(1.1); }
+    .result-who strong { display: block; font-weight: 600; font-size: 16px; }
+    .result-who span { font-family: var(--mono); font-size: 12px; color: var(--mute); text-transform: uppercase; letter-spacing: .05em; }
+    .disclaimer { margin: 32px 0 0; font-size: 14px; color: var(--mute); max-width: 72ch; }
+
+    /* ============ Planos ============ */
+    .plan-grid { display: grid; gap: 16px; align-items: stretch; }
+    @media (min-width: 960px) { .plan-grid { grid-template-columns: repeat(3, 1fr); gap: 0; } }
+    .plan {
+      position: relative; padding: 36px 28px; display: flex; flex-direction: column;
+      border: 1px solid var(--line-strong); background: var(--ink);
+    }
+    @media (min-width: 960px) {
+      .plan { padding: 44px 36px; }
+      .plan + .plan { border-left: 0; }
+      .plan--pro { margin-block: -24px; padding-block: 68px; z-index: 1; }
+    }
+    .plan--pro { background: var(--graphite); border: 1.5px solid var(--volt) !important; }
+    .plan-badge {
+      position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
+      background: var(--volt); color: var(--ink); font-family: var(--mono); font-weight: 500; font-size: 12px;
+      text-transform: uppercase; letter-spacing: .08em; padding: 8px 14px; white-space: nowrap;
+    }
+    .plan-name { font-family: var(--display); font-weight: 900; font-size: 40px; letter-spacing: .08em; line-height: 1; margin: 0; }
+    .plan-for { color: var(--mute); font-size: 15px; margin: 8px 0 28px; min-height: 3em; }
+    .plan-price { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+    .plan-price .cur { font-family: var(--mono); font-size: 16px; margin-top: 12px; color: var(--soft); }
+    .plan-price .val { font-family: var(--display); font-weight: 900; font-size: clamp(84px, 7vw, 112px); line-height: .8; font-variant-numeric: tabular-nums; }
+    .plan-price .per { font-family: var(--mono); font-size: 14px; color: var(--mute); align-self: flex-end; margin-bottom: 4px; }
+    .plan--pro .plan-price .val { color: var(--volt); }
+    .plan ul { list-style: none; margin: 0 0 32px; padding: 0; display: grid; gap: 12px; flex: 1; }
+    .plan li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; font-size: 16px; color: var(--chalk); }
+    .plan li svg { width: 18px; height: 18px; margin-top: 4px; color: var(--volt); }
+    .plan li.off { color: var(--mute); }
+    .plan li.off svg { color: var(--mute); }
+    .plan .btn { width: 100%; }
+    .plan-note { margin-top: 28px; color: var(--mute); font-size: 14px; text-align: center; }
+
+    /* ============ App ============ */
+    .app { overflow: hidden; background: var(--graphite); }
+    .app-inner { display: grid; gap: 64px; align-items: center; }
+    @media (min-width: 1024px) { .app-inner { grid-template-columns: 1fr 1fr; gap: 80px; } }
+    .app h2 { font-size: clamp(52px, 6.4vw, 104px); margin-bottom: 28px; }
+    .features { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--line-strong); }
+    .features li { display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .features li svg { width: 24px; height: 24px; color: var(--volt); margin-top: 2px; }
+    .features strong { display: block; font-weight: 600; font-size: 17px; }
+    .features span { color: var(--mute); font-size: 15px; }
+
+    .phones { position: relative; height: 640px; max-width: 560px; margin-inline: auto; width: 100%; }
+    .phones::before {
+      content: ""; position: absolute; left: 50%; top: 50%; width: 520px; height: 520px; transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(200,255,46,.16), transparent 62%);
+    }
+    .phone {
+      position: absolute; width: 280px; height: 580px; border-radius: 44px;
+      background: #050606; padding: 10px;
+      box-shadow: 0 0 0 1.5px #2c3134, 0 40px 80px -20px rgba(0,0,0,.8);
+      transition: transform .6s var(--ease);
+    }
+    .phone-screen { width: 100%; height: 100%; border-radius: 34px; background: var(--ink); overflow: hidden; position: relative; padding: 44px 18px 18px; display: flex; flex-direction: column; gap: 14px; }
+    .phone-screen::before { content: ""; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 88px; height: 24px; border-radius: 20px; background: #000; }
+    .phone--a { left: 0; top: 30px; transform: rotate(-6deg); z-index: 2; }
+    .phone--b { right: 0; top: 0; transform: rotate(5deg); }
+    .phones:hover .phone--a { transform: rotate(-8deg) translateX(-8px); }
+    .phones:hover .phone--b { transform: rotate(7deg) translateX(8px); }
+    .ph-top { display: flex; justify-content: space-between; align-items: center; }
+    .ph-kicker { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--mute); }
+    .ph-title { font-family: var(--display); font-weight: 900; font-size: 30px; text-transform: uppercase; line-height: .9; }
+    .ph-ring { width: 46px; height: 46px; }
+    .ph-list { display: grid; gap: 8px; }
+    .ph-item { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center; background: var(--graphite); padding: 10px 12px; border: 1px solid var(--line); }
+    .ph-item b { font-weight: 600; font-size: 13px; display: block; line-height: 1.2; }
+    .ph-item small { font-family: var(--mono); font-size: 10.5px; color: var(--mute); }
+    .ph-item .kg { font-family: var(--mono); font-size: 12px; color: var(--chalk); }
+    .ph-check { width: 20px; height: 20px; border: 1.5px solid var(--line-strong); display: grid; place-items: center; }
+    .ph-check.done { background: var(--volt); border-color: var(--volt); color: var(--ink); }
+    .ph-check svg { width: 12px; height: 12px; }
+    .ph-btn { margin-top: auto; background: var(--volt); color: var(--ink); text-align: center; font-weight: 600; font-size: 14px; padding: 12px; }
+    .ph-card { background: var(--graphite); border: 1px solid var(--line); padding: 14px; }
+    .ph-big { font-family: var(--display); font-weight: 900; font-size: 44px; line-height: .9; }
+    .ph-big small { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--volt); margin-left: 6px; }
+    .ph-chart { width: 100%; height: 110px; margin-top: 8px; }
+    .ph-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+    .ph-pill { font-family: var(--mono); font-size: 10.5px; padding: 4px 8px; border: 1px solid var(--volt); color: var(--volt); }
+    .ph-msg { display: flex; gap: 10px; align-items: flex-start; }
+    .ph-avatar { width: 28px; height: 28px; flex: none; object-fit: cover; filter: grayscale(1); }
+    .ph-bubble { background: var(--steel); padding: 8px 10px; font-size: 12px; line-height: 1.4; }
+    @media (max-width: 600px) {
+      .phones { width: 470px; max-width: none; justify-self: center; zoom: .74; }
+      .phones::before { width: 420px; height: 420px; }
+    }
+    @media (max-width: 400px) { .phones { zoom: .7; } }
+
+    /* ============ Aula experimental ============ */
+    .trial { background: var(--volt); color: var(--ink); overflow: hidden; }
+    .trial .ecg { top: clamp(28px, 5vw, 64px); height: 120px; }
+    .trial .ecg .ecg-base { stroke: var(--ink); stroke-opacity: .18; }
+    .trial .ecg .ecg-sweep { stroke: var(--ink); filter: none; }
+    .trial-inner { position: relative; display: grid; gap: 48px; }
+    @media (min-width: 1024px) { .trial-inner { grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: end; } }
+    .trial h2 { font-size: clamp(60px, 8.4vw, 144px); }
+    .trial .lead { color: var(--ink); opacity: .82; margin-top: 28px; }
+    .trial-points { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 10px; }
+    .trial-points li { display: flex; gap: 12px; align-items: center; font-weight: 500; }
+    .trial-points svg { width: 20px; height: 20px; flex: none; }
+    .form { background: var(--ink); color: var(--chalk); padding: clamp(24px, 3.4vw, 44px); position: relative; z-index: 1; }
+    .form::before { content: ""; position: absolute; top: 0; right: 0; width: 28px; height: 28px; background: var(--volt); clip-path: polygon(0 0, 100% 0, 100% 100%); }
+    .form h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 36px; line-height: .95; margin: 0 0 6px; }
+    .form > p { margin: 0 0 24px; color: var(--mute); font-size: 15px; }
+    .field { display: grid; gap: 8px; margin-bottom: 18px; }
+    .field label { font-size: 14px; font-weight: 500; color: var(--soft); }
+    .field input, .field select {
+      width: 100%; min-height: 54px; padding: 0 16px;
+      background: var(--graphite); border: 1px solid var(--line-strong); border-radius: 0;
+      font-size: 16px; color: var(--chalk);
+      transition: border-color var(--fast), background var(--fast);
+      -webkit-appearance: none; appearance: none;
+    }
+    .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23C8FF2E' stroke-width='2'%3E%3Cpath d='M2 5l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; }
+    .field select:invalid { color: var(--mute); }
+    .field input::placeholder { color: #5f6468; }
+    .field input:hover, .field select:hover { border-color: rgba(240,241,236,.32); }
+    .field input:focus, .field select:focus { outline: none; border-color: var(--volt); background: #181b1c; }
+    .field.has-error input, .field.has-error select { border-color: #FF6B5A; }
+    .field .err { font-size: 13px; color: #FF8A7C; display: none; }
+    .field.has-error .err { display: block; }
+    .field-row { display: grid; gap: 0 16px; }
+    @media (min-width: 560px) { .field-row { grid-template-columns: 1fr 1fr; } }
+    .plan-chip { display: none; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; padding: 10px 14px; border: 1px dashed rgba(200,255,46,.5); font-size: 14px; }
+    .plan-chip.is-on { display: flex; }
+    .plan-chip b { color: var(--volt); }
+    .plan-chip button { background: none; border: 0; color: var(--mute); font-size: 13px; text-decoration: underline; padding: 4px; }
+    .form .btn { width: 100%; margin-top: 6px; }
+    .form-legal { margin: 14px 0 0; font-size: 13px; color: var(--mute); }
+    .form-success { display: none; text-align: left; }
+    .form.is-done form { display: none; }
+    .form.is-done .form-success { display: block; }
+    .form-success .ok { width: 64px; height: 64px; background: var(--volt); color: var(--ink); display: grid; place-items: center; margin-bottom: 24px; }
+    .form-success .ok svg { width: 32px; height: 32px; }
+    .form-success p { color: var(--soft); margin: 12px 0 24px; }
+
+    /* ============ FAQ ============ */
+    .faq-inner { display: grid; gap: 48px; }
+    @media (min-width: 1024px) { .faq-inner { grid-template-columns: .9fr 1.1fr; gap: 80px; } .faq-side { position: sticky; top: calc(var(--nav-h) + 40px); align-self: start; } }
+    .faq-side .lead { margin-top: 24px; }
+    .faq-side .arrow-link { margin-top: 28px; }
+    .faq-list { border-top: 1px solid var(--line-strong); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-item summary {
+      list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px;
+      padding: 26px 0; font-weight: 600; font-size: clamp(18px, 1.5vw, 21px);
+      transition: color var(--fast);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: var(--volt); }
+    .faq-icon { width: 36px; height: 36px; flex: none; border: 1px solid var(--line-strong); position: relative; transition: background var(--fast), border-color var(--fast); }
+    .faq-icon::before, .faq-icon::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 2px; background: currentColor; transform: translate(-50%, -50%); transition: transform 260ms var(--ease); }
+    .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+    .faq-item[open] .faq-icon { background: var(--volt); border-color: var(--volt); color: var(--ink); }
+    .faq-item[open] .faq-icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+    .faq-answer { overflow: hidden; }
+    .faq-answer p { margin: 0; padding: 0 64px 28px 0; color: var(--soft); max-width: 62ch; }
+
+    /* ============ Footer ============ */
+    .footer { background: #050606; padding-top: clamp(72px, 9vw, 120px); padding-bottom: calc(32px + env(safe-area-inset-bottom)); overflow: hidden; }
+    .footer-top { display: grid; gap: 48px; padding-bottom: 56px; }
+    @media (min-width: 900px) { .footer-top { grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px; } }
+    .footer h4 { font-family: var(--mono); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--mute); margin: 0 0 18px; }
+    .footer p, .footer li { color: var(--soft); font-size: 15px; }
+    .footer p { margin: 0 0 10px; }
+    .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    .footer a:hover { color: var(--volt); }
+    .hours { display: grid; gap: 10px; }
+    .hours div { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--soft); }
+    .hours b { font-family: var(--mono); font-weight: 400; font-size: 14px; color: var(--chalk); }
+    .socials { display: flex; gap: 10px; margin-top: 20px; }
+    .socials a { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line-strong); transition: border-color var(--fast), color var(--fast); }
+    .socials a:hover { border-color: var(--volt); }
+    .socials svg { width: 18px; height: 18px; }
+    .footer-word {
+      font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: .78;
+      font-size: clamp(110px, 27vw, 440px); letter-spacing: .02em;
+      color: var(--graphite); margin: 0; padding-top: 20px; border-top: 1px solid var(--line);
+      display: flex; align-items: flex-end; justify-content: space-between; user-select: none;
+    }
+    .footer-word svg { width: .42em; height: .42em; color: var(--volt); margin-bottom: .1em; flex: none; }
+    .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 28px; font-size: 13px; color: var(--mute); }
+
+    /* ============ CTA fixo no mobile ============ */
+    .mobile-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      background: linear-gradient(to top, var(--ink) 60%, rgba(10,11,11,0));
+      transform: translateY(110%); transition: transform 300ms var(--ease);
+    }
+    .mobile-cta.is-on { transform: none; }
+    .mobile-cta .btn { width: 100%; }
+    @media (min-width: 1024px) { .mobile-cta { display: none; } }
+
+    /* ============ Reveal ============ */
+    [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: var(--d, 0s); }
+    [data-reveal].is-in { opacity: 1; transform: none; }
+    @media (min-width: 1080px) {
+      .mod-card:nth-child(3n+2)[data-reveal] { transform: translateY(84px); }
+      .mod-card:nth-child(3n+2)[data-reveal].is-in { transform: translateY(56px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      [data-reveal] { opacity: 1; transform: none; }
+      .ecg .ecg-sweep { display: none; }
+      .ecg .ecg-draw { stroke-dashoffset: 0; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ExerciseGym",
+    "name": "PULSE Training Club",
+    "description": "Academia premium de musculação, treinamento funcional, condicionamento e performance. Projeto conceitual.",
+    "address": { "@type": "PostalAddress", "streetAddress": "Rua Voltaire Lima, 1200", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
+    "openingHours": ["Mo-Fr 05:00-23:00", "Sa 07:00-18:00", "Su 08:00-14:00"],
+    "priceRange": "R$ 99–219"
+  }
+  </script>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- SVG sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2.2 4.4 5 4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.2-4A8 8 0 1 1 8 18.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z" fill="currentColor"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 32 32"><path d="M3 17h7l2-4 3 10 3-15 3 9h8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a href="#top" class="logo" aria-label="PULSE Training Club — início">
+        <span class="logo-mark" style="color:var(--ink)"><svg><use href="#i-pulse"/></svg></span>
+        <span class="logo-word">PULSE</span>
+      </a>
+      <nav aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="#estrutura">Estrutura</a></li>
+          <li><a href="#modalidades">Modalidades</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#treinadores">Treinadores</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <a href="#treino-gratis" class="btn btn--sm nav-cta">Treine grátis <svg><use href="#i-arrow"/></svg></a>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul>
+      <li><a href="#estrutura">Estrutura <svg width="24" height="24"><use href="#i-arrow"/></svg></a></li>
+      <li><a href="#modalidades">Modalidades <svg width="24" height="24"><use href="#i-arrow"/></svg></a></li>
+      <li><a href="#planos">Planos <svg width="24" height="24"><use href="#i-arrow"/></svg></a></li>
+      <li><a href="#treinadores">Treinadores <svg width="24" height="24"><use href="#i-arrow"/></svg></a></li>
+      <li><a href="#contato">Contato <svg width="24" height="24"><use href="#i-arrow"/></svg></a></li>
+    </ul>
+    <a href="#treino-gratis" class="btn">Treine grátis <svg><use href="#i-arrow"/></svg></a>
+  </div>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" id="hero-media">
+        <img src="https://images.unsplash.com/photo-1637666062717-1c6bcfa4a4df?w=1920&q=70&auto=format&fit=crop"
+             srcset="https://images.unsplash.com/photo-1637666062717-1c6bcfa4a4df?w=900&q=70&auto=format&fit=crop 900w,
+                     https://images.unsplash.com/photo-1637666062717-1c6bcfa4a4df?w=1400&q=70&auto=format&fit=crop 1400w,
+                     https://images.unsplash.com/photo-1637666062717-1c6bcfa4a4df?w=1920&q=70&auto=format&fit=crop 1920w"
+             sizes="100vw" alt="" fetchpriority="high" />
+      </div>
+
+
+      <div class="hero-body has-grid hero-grid">
+        <div class="wrap">
+          <div class="hero-top">
+            <svg class="ecg" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+              <path class="ecg-base" pathLength="1000" d="M0 120H820l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H1150l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H1440"/>
+              <path class="ecg-draw" pathLength="1000" d="M0 120H820l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H1150l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H1440"/>
+              <path class="ecg-sweep" pathLength="1000" d="M0 120H820l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H1150l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H1440"/>
+            </svg>
+            <h1 class="display hero-title" id="hero-title">
+              <span class="line"><span>Não treine</span></span>
+              <span class="line"><span>apenas.</span></span>
+              <span class="line"><span class="volt">Evolua.</span></span>
+            </h1>
+            <div class="hero-copy">
+              <p class="lead">Uma experiência de treino criada para quem quer superar limites e alcançar resultados reais.</p>
+              <div class="hero-ctas">
+                <a href="#treino-gratis" class="btn">Agendar treino grátis <svg><use href="#i-arrow"/></svg></a>
+                <a href="#estrutura" class="btn btn--ghost">Conhecer a estrutura</a>
+              </div>
+            </div>
+          </div>
+
+          <dl class="stats">
+            <div class="stat">
+              <dt class="stat-label">Alunos ativos</dt>
+              <dd class="stat-num" style="margin:0">+<span data-count="1500">0</span></dd>
+            </div>
+            <div class="stat">
+              <dt class="stat-label">Treinadores</dt>
+              <dd class="stat-num" style="margin:0"><span data-count="20">0</span></dd>
+            </div>
+            <div class="stat">
+              <dt class="stat-label">De estrutura</dt>
+              <dd class="stat-num" style="margin:0"><span data-count="1200">0</span><small>m²</small></dd>
+            </div>
+            <div class="stat">
+              <dt class="stat-label"><span class="live-dot" aria-hidden="true"></span>Aberto</dt>
+              <dd class="stat-num" style="margin:0"><span data-count="7">0</span><small>dias/sem</small></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MANIFESTO ============ -->
+    <section class="section manifesto" id="manifesto" aria-labelledby="manifesto-title">
+      <div class="bg-words" aria-hidden="true">
+        <span data-drift="-1">Disciplina · Consistência ·</span>
+        <span data-drift="1">Evolução · Evolução · Evolução</span>
+      </div>
+      <div class="wrap manifesto-inner">
+        <h2 class="display" id="manifesto-title" data-reveal>Seu limite é apenas o <em>começo.</em></h2>
+        <div class="manifesto-cols">
+          <div class="manifesto-text" data-reveal>
+            <p>Resultado não vem de um treino perfeito. Vem de muitos treinos bem feitos, um depois do outro.</p>
+            <p>Na PULSE, cada programa começa com uma avaliação e termina com números que você consegue ver: carga, tempo, medidas. O que muda no meio é você aparecendo, semana após semana, com alguém do lado garantindo que o esforço vá para o lugar certo.</p>
+          </div>
+          <div class="pillars" data-reveal style="--d:.1s">
+            <div class="pillar"><strong>Disciplina</strong><span>Aparecer também nos dias sem vontade.</span></div>
+            <div class="pillar"><strong>Consistência</strong><span>Três treinos por semana valem mais que um treino heroico.</span></div>
+            <div class="pillar"><strong class="volt">Evolução</strong><span>O que aparece quando você olha para trás.</span></div>
+          </div>
+          <figure class="manifesto-photo" data-reveal style="--d:.2s">
+            <img data-parallax="0.08" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=900&q=70&auto=format&fit=crop" alt="Atleta fazendo levantamento terra em ambiente escuro" loading="lazy" decoding="async" />
+            <figcaption>05h00 · segunda-feira</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MODALIDADES ============ -->
+    <section class="section modalities has-grid" id="modalidades" aria-labelledby="mod-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display h2" id="mod-title" data-reveal>Seis formas de <span class="volt">acelerar.</span></h2>
+          <p class="lead" data-reveal style="--d:.08s">Do treino de força ao intervalado de 30 minutos, cada modalidade tem turma, horário e treinador próprio. Combine as que servem ao seu objetivo.</p>
+        </div>
+
+        <div class="mod-grid">
+          <!-- Musculação -->
+          <article class="mod-card" data-reveal>
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=900&q=70&auto=format&fit=crop" alt="Aluno fazendo rosca com barra" loading="lazy" decoding="async" />
+            <div class="mod-top">
+              <span class="tag">Horário livre</span>
+              <span class="meter-wrap" aria-label="Intensidade 3 de 5"><span class="mono">Intens.</span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></span>
+            </div>
+            <div class="mod-body">
+              <h3>Musculação</h3>
+              <p>Força e hipertrofia com periodização montada pelo seu treinador e cargas registradas no app.</p>
+              <button class="arrow-link" data-more aria-expanded="false">Saiba mais <svg><use href="#i-arrow"/></svg></button>
+            </div>
+            <div class="mod-more" role="region" aria-label="Detalhes de Musculação">
+              <button class="mod-close" data-close aria-label="Fechar detalhes"><svg width="20" height="20"><use href="#i-close"/></svg></button>
+              <h4>Musculação</h4>
+              <dl>
+                <div><dt>Onde</dt><dd>520 m², racks, halteres até 60 kg e linha completa de máquinas</dd></div>
+                <div><dt>Nível</dt><dd>Iniciante ao avançado</dd></div>
+                <div><dt>Horário</dt><dd>Todo o período de funcionamento</dd></div>
+                <div><dt>Incluso</dt><dd>Todos os planos</dd></div>
+              </dl>
+              <div class="row"><a href="#treino-gratis" class="btn btn--sm" data-goal="Hipertrofia e força">Agendar treino</a></div>
+            </div>
+          </article>
+
+          <!-- Funcional -->
+          <article class="mod-card" data-reveal style="--d:.08s">
+            <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a00?w=900&q=70&auto=format&fit=crop" alt="Aluno em exercício funcional no chão" loading="lazy" decoding="async" />
+            <div class="mod-top">
+              <span class="tag">50 min</span>
+              <span class="meter-wrap" aria-label="Intensidade 3 de 5"><span class="mono">Intens.</span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></span>
+            </div>
+            <div class="mod-body">
+              <h3>Funcional</h3>
+              <p>Movimentos multiarticulares, mobilidade e core para um corpo que responde melhor no dia a dia.</p>
+              <button class="arrow-link" data-more aria-expanded="false">Saiba mais <svg><use href="#i-arrow"/></svg></button>
+            </div>
+            <div class="mod-more" role="region" aria-label="Detalhes de Funcional">
+              <button class="mod-close" data-close aria-label="Fechar detalhes"><svg width="20" height="20"><use href="#i-close"/></svg></button>
+              <h4>Funcional</h4>
+              <dl>
+                <div><dt>Onde</dt><dd>Espaço funcional com grama sintética e pista de sled</dd></div>
+                <div><dt>Turmas</dt><dd>Até 16 alunos, 9 horários por dia</dd></div>
+                <div><dt>Nível</dt><dd>Adaptável a qualquer condicionamento</dd></div>
+                <div><dt>Incluso</dt><dd>Planos PRO e ELITE</dd></div>
+              </dl>
+              <div class="row"><a href="#treino-gratis" class="btn btn--sm" data-goal="Condicionamento físico">Agendar aula</a></div>
+            </div>
+          </article>
+
+          <!-- Cross -->
+          <article class="mod-card" data-reveal style="--d:.16s">
+            <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=900&q=70&auto=format&fit=crop" alt="Barra olímpica carregada no chão do box" loading="lazy" decoding="async" />
+            <div class="mod-top">
+              <span class="tag">60 min</span>
+              <span class="meter-wrap" aria-label="Intensidade 4 de 5"><span class="mono">Intens.</span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span>
+            </div>
+            <div class="mod-body">
+              <h3>Cross Training</h3>
+              <p>Levantamentos, ginástica e metcons em turmas pequenas, com técnica antes de volume.</p>
+              <button class="arrow-link" data-more aria-expanded="false">Saiba mais <svg><use href="#i-arrow"/></svg></button>
+            </div>
+            <div class="mod-more" role="region" aria-label="Detalhes de Cross Training">
+              <button class="mod-close" data-close aria-label="Fechar detalhes"><svg width="20" height="20"><use href="#i-close"/></svg></button>
+              <h4>Cross Training</h4>
+              <dl>
+                <div><dt>Onde</dt><dd>Rig de 12 m, barras olímpicas e remos</dd></div>
+                <div><dt>Turmas</dt><dd>Até 14 alunos com 1 treinador</dd></div>
+                <div><dt>Nível</dt><dd>Turmas separadas para iniciantes</dd></div>
+                <div><dt>Incluso</dt><dd>Planos PRO e ELITE</dd></div>
+              </dl>
+              <div class="row"><a href="#treino-gratis" class="btn btn--sm" data-goal="Performance esportiva">Agendar aula</a></div>
+            </div>
+          </article>
+
+          <!-- Spinning -->
+          <article class="mod-card" data-reveal>
+            <img src="https://images.unsplash.com/photo-1520877880798-5ee004e3f11e?w=900&q=70&auto=format&fit=crop" alt="Turma pedalando no studio de bike" loading="lazy" decoding="async" />
+            <div class="mod-top">
+              <span class="tag">45 min</span>
+              <span class="meter-wrap" aria-label="Intensidade 4 de 5"><span class="mono">Intens.</span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span>
+            </div>
+            <div class="mod-body">
+              <h3>Spinning</h3>
+              <p>Bike indoor guiada por zonas de frequência cardíaca, com playlist pensada para cada bloco.</p>
+              <button class="arrow-link" data-more aria-expanded="false">Saiba mais <svg><use href="#i-arrow"/></svg></button>
+            </div>
+            <div class="mod-more" role="region" aria-label="Detalhes de Spinning">
+              <button class="mod-close" data-close aria-label="Fechar detalhes"><svg width="20" height="20"><use href="#i-close"/></svg></button>
+              <h4>Spinning</h4>
+              <dl>
+                <div><dt>Onde</dt><dd>Studio com 36 bikes com medidor de potência</dd></div>
+                <div><dt>Reserva</dt><dd>Pelo app, até 48 h antes</dd></div>
+                <div><dt>Nível</dt><dd>Cada aluno pedala na própria zona</dd></div>
+                <div><dt>Incluso</dt><dd>Planos PRO e ELITE</dd></div>
+              </dl>
+              <div class="row"><a href="#treino-gratis" class="btn btn--sm" data-goal="Emagrecimento">Agendar aula</a></div>
+            </div>
+          </article>
+
+          <!-- HIIT -->
+          <article class="mod-card" data-reveal style="--d:.08s">
+            <img src="https://images.unsplash.com/photo-1535743686920-55e4145369b9?w=900&q=70&auto=format&fit=crop" alt="Aluna treinando com cordas navais" loading="lazy" decoding="async" />
+            <div class="mod-top">
+              <span class="tag">30 min</span>
+              <span class="meter-wrap" aria-label="Intensidade 5 de 5"><span class="mono">Intens.</span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span>
+            </div>
+            <div class="mod-body">
+              <h3>HIIT</h3>
+              <p>Intervalos curtos e intensos em 30 minutos, para quem tem pouco tempo e quer condicionamento.</p>
+              <button class="arrow-link" data-more aria-expanded="false">Saiba mais <svg><use href="#i-arrow"/></svg></button>
+            </div>
+            <div class="mod-more" role="region" aria-label="Detalhes de HIIT">
+              <button class="mod-close" data-close aria-label="Fechar detalhes"><svg width="20" height="20"><use href="#i-close"/></svg></button>
+              <h4>HIIT</h4>
+              <dl>
+                <div><dt>Formato</dt><dd>Blocos de 40 s de esforço por 20 s de pausa</dd></div>
+                <div><dt>Horários</dt><dd>06h, 07h, 12h15, 18h30 e 19h30</dd></div>
+                <div><dt>Nível</dt><dd>Recomendado após 4 semanas de treino</dd></div>
+                <div><dt>Incluso</dt><dd>Planos PRO e ELITE</dd></div>
+              </dl>
+              <div class="row"><a href="#treino-gratis" class="btn btn--sm" data-goal="Condicionamento físico">Agendar aula</a></div>
+            </div>
+          </article>
+
+          <!-- Personal -->
+          <article class="mod-card" data-reveal style="--d:.16s">
+            <img src="https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?w=900&q=70&auto=format&fit=crop" alt="Treinador acompanhando aluna em exercício" loading="lazy" decoding="async" />
+            <div class="mod-top">
+              <span class="tag">60 min</span>
+              <span class="meter-wrap"><span class="mono">Sob medida</span></span>
+            </div>
+            <div class="mod-body">
+              <h3>Personal Training</h3>
+              <p>Sessões individuais com planejamento, acompanhamento e ajustes semana a semana.</p>
+              <button class="arrow-link" data-more aria-expanded="false">Saiba mais <svg><use href="#i-arrow"/></svg></button>
+            </div>
+            <div class="mod-more" role="region" aria-label="Detalhes de Personal Training">
+              <button class="mod-close" data-close aria-label="Fechar detalhes"><svg width="20" height="20"><use href="#i-close"/></svg></button>
+              <h4>Personal</h4>
+              <dl>
+                <div><dt>Formato</dt><dd>Individual ou em dupla</dd></div>
+                <div><dt>Frequência</dt><dd>Pacotes de 4, 8 ou 12 sessões por mês</dd></div>
+                <div><dt>Inclui</dt><dd>Avaliação mensal e plano no app</dd></div>
+                <div><dt>Valor</dt><dd>À parte; ELITE já inclui 2 sessões/mês</dd></div>
+              </dl>
+              <div class="row"><a href="#treino-gratis" class="btn btn--sm" data-goal="Hipertrofia e força">Falar com um treinador</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ESTRUTURA ============ -->
+    <section class="section structure" id="estrutura" aria-labelledby="est-title">
+      <div class="wrap">
+        <div class="section-head" style="margin-bottom:0">
+          <h2 class="display h2" id="est-title" data-reveal>1.200 m² para ir <span class="volt">além.</span></h2>
+          <div data-reveal style="--d:.08s">
+            <p class="lead">Seis ambientes pensados para que você não espere por aparelho, tenha espaço para se mover e saia melhor do que entrou.</p>
+            <div class="gallery-controls" style="margin-top:32px">
+              <button class="gal-btn" id="gal-prev" aria-label="Ambiente anterior"><svg><use href="#i-left"/></svg></button>
+              <button class="gal-btn" id="gal-next" aria-label="Próximo ambiente"><svg><use href="#i-arrow"/></svg></button>
+              <div class="gal-progress" aria-hidden="true"><span id="gal-bar"></span></div>
+              <span class="gal-count" id="gal-count" aria-live="polite">01 / 06</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery" id="gallery" tabindex="0" aria-label="Galeria de ambientes da academia">
+        <figure class="area">
+          <div class="area-media">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=70&auto=format&fit=crop" alt="Área de musculação com fileira de halteres" loading="lazy" decoding="async" draggable="false" />
+            <span class="area-size">520 m²</span>
+          </div>
+          <figcaption><strong>Área de musculação</strong><span>Racks de agachamento, halteres até 60 kg e máquinas de carga guiada, sem fila no horário de pico.</span></figcaption>
+        </figure>
+        <figure class="area">
+          <div class="area-media">
+            <img src="https://images.unsplash.com/photo-1623874514711-0f321325f318?w=1200&q=70&auto=format&fit=crop" alt="Espaço funcional amplo com equipamentos" loading="lazy" decoding="async" draggable="false" />
+            <span class="area-size">220 m²</span>
+          </div>
+          <figcaption><strong>Espaço funcional</strong><span>Grama sintética, pista de sled de 20 m e rig para cross e ginástica.</span></figcaption>
+        </figure>
+        <figure class="area">
+          <div class="area-media">
+            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1200&q=70&auto=format&fit=crop" alt="Fileira de esteiras na área de cardio" loading="lazy" decoding="async" draggable="false" />
+            <span class="area-size">160 m²</span>
+          </div>
+          <figcaption><strong>Cardio</strong><span>40 equipamentos entre esteiras, escadas, remos e bikes de ar, todos com tela individual.</span></figcaption>
+        </figure>
+        <figure class="area">
+          <div class="area-media">
+            <img src="https://images.unsplash.com/photo-1760031670160-4da44e9596d0?w=1200&q=70&auto=format&fit=crop" alt="Fileira de bikes no studio de spinning" loading="lazy" decoding="async" draggable="false" />
+            <span class="area-size">110 m²</span>
+          </div>
+          <figcaption><strong>Studio de bike</strong><span>36 bikes com medidor de potência, som imersivo e luz que acompanha a intensidade da aula.</span></figcaption>
+        </figure>
+        <figure class="area">
+          <div class="area-media">
+            <img src="https://images.unsplash.com/photo-1540206276207-3af25c08abc4?w=1200&q=70&auto=format&fit=crop" alt="Aluno amarrando o tênis no banco do vestiário" loading="lazy" decoding="async" draggable="false" />
+            <span class="area-size">110 m²</span>
+          </div>
+          <figcaption><strong>Vestiários</strong><span>Armários com trava digital, duchas com aquecimento a gás, secadores e toalhas no plano ELITE.</span></figcaption>
+        </figure>
+        <figure class="area">
+          <div class="area-media">
+            <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=1200&q=70&auto=format&fit=crop" alt="Sessão de massagem na área de recuperação" loading="lazy" decoding="async" draggable="false" />
+            <span class="area-size">80 m²</span>
+          </div>
+          <figcaption><strong>Área de recuperação</strong><span>Liberação miofascial, botas de compressão e sala de alongamento para fechar o treino.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ DIFERENCIAIS ============ -->
+    <section class="section perks" id="diferenciais" aria-labelledby="perks-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display h2" id="perks-title" data-reveal>O que muda quando você treina <span class="volt">aqui.</span></h2>
+          <p class="lead" data-reveal style="--d:.08s">Estrutura, equipe e método trabalhando juntos para que cada hora de treino conte.</p>
+        </div>
+        <div class="perk-grid">
+          <article class="perk" data-reveal>
+            <span class="perk-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12v8M8 9v14M24 9v14M28 12v8M8 16h16"/></svg>
+            </span>
+            <h3>Equipamentos premium</h3>
+            <p>Linha completa de força e cardio, com manutenção preventiva toda semana. Aparelho parado não fica esperando conserto.</p>
+          </article>
+          <article class="perk" data-reveal style="--d:.06s">
+            <span class="perk-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="10" r="5"/><path d="M6 28c0-5.5 4.5-9 10-9s10 3.5 10 9"/><path d="M21 7l2 2 4-4"/></svg>
+            </span>
+            <h3>Profissionais especializados</h3>
+            <p>Treinadores formados em Educação Física, com especialização na área que ensinam e presentes no salão em todos os horários.</p>
+          </article>
+          <article class="perk" data-reveal style="--d:.12s">
+            <span class="perk-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h20M6 16h20M6 24h20"/><rect x="10" y="5" width="4" height="6" fill="var(--graphite)"/><rect x="19" y="13" width="4" height="6" fill="var(--graphite)"/><rect x="8" y="21" width="4" height="6" fill="var(--graphite)"/></svg>
+            </span>
+            <h3>Treinos personalizados</h3>
+            <p>Avaliação física na entrada e um programa montado para o seu objetivo, revisado a cada ciclo de 8 a 12 semanas.</p>
+          </article>
+          <article class="perk" data-reveal style="--d:.18s">
+            <span class="perk-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="14" height="26" rx="2.5"/><path d="M11 17h3l1.5-3 2 6 1.5-3h2"/></svg>
+            </span>
+            <h3>App de acompanhamento</h3>
+            <p>Treino, cargas e evolução no celular. Você chega sabendo exatamente o que fazer e sai com tudo registrado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TREINADORES ============ -->
+    <section class="section coaches" id="treinadores" aria-labelledby="coach-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display h2" id="coach-title" data-reveal>Treine com quem entende de <span class="volt">resultados.</span></h2>
+          <p class="lead" data-reveal style="--d:.08s">Quatro dos nossos 20 treinadores. Cada aluno tem um responsável pelo programa, e toda a equipe conhece o seu treino pelo app.</p>
+        </div>
+        <div class="coach-grid">
+          <figure class="coach" data-reveal>
+            <div class="coach-photo"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=700&q=70&auto=format&fit=crop&crop=faces" alt="Lucas Martins, treinador" loading="lazy" decoding="async" /></div>
+            <figcaption>
+              <span class="coach-name">Lucas Martins</span>
+              <span class="coach-spec">Hipertrofia e força</span>
+              <span class="coach-ig"><svg><use href="#i-ig"/></svg>@lucasmartins.forca</span>
+            </figcaption>
+          </figure>
+          <figure class="coach" data-reveal style="--d:.06s">
+            <div class="coach-photo"><img src="https://images.unsplash.com/photo-1541338784564-51087dabc0de?w=700&q=70&auto=format&fit=crop&crop=faces" alt="Mariana Costa, treinadora" loading="lazy" decoding="async" /></div>
+            <figcaption>
+              <span class="coach-name">Mariana Costa</span>
+              <span class="coach-spec">Funcional e mobilidade</span>
+              <span class="coach-ig"><svg><use href="#i-ig"/></svg>@mari.costa.move</span>
+            </figcaption>
+          </figure>
+          <figure class="coach" data-reveal style="--d:.12s">
+            <div class="coach-photo"><img src="https://images.unsplash.com/photo-1604480133435-25b86862d276?w=700&q=70&auto=format&fit=crop&crop=faces" alt="Rafael Souza, treinador" loading="lazy" decoding="async" /></div>
+            <figcaption>
+              <span class="coach-name">Rafael Souza</span>
+              <span class="coach-spec">Performance esportiva</span>
+              <span class="coach-ig"><svg><use href="#i-ig"/></svg>@rafasouza.perf</span>
+            </figcaption>
+          </figure>
+          <figure class="coach" data-reveal style="--d:.18s">
+            <div class="coach-photo"><img src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?w=700&q=70&auto=format&fit=crop&crop=faces" alt="Camila Alves, treinadora" loading="lazy" decoding="async" /></div>
+            <figcaption>
+              <span class="coach-name">Camila Alves</span>
+              <span class="coach-spec">Emagrecimento e condicionamento</span>
+              <span class="coach-ig"><svg><use href="#i-ig"/></svg>@camila.alves.cond</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTADOS ============ -->
+    <section class="section results has-grid" id="resultados" aria-labelledby="res-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display h2" id="res-title" data-reveal>Evolução de <span class="volt">verdade.</span></h2>
+          <p class="lead" data-reveal style="--d:.08s">Histórias de alunos que treinam com a gente. Sem atalho, sem fórmula mágica: frequência, acompanhamento e paciência.</p>
+        </div>
+        <div class="result-grid">
+          <article class="result" data-reveal>
+            <p class="result-metric">−12 kg<small>em 6 meses</small></p>
+            <blockquote>“Eu já tinha começado e parado três vezes. O que mudou foi ter horário fixo no funcional e alguém cobrando a reavaliação. Os quilos vieram junto com o sono e a disposição.”</blockquote>
+            <div class="result-who">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=160&h=160&q=70&auto=format&fit=crop&crop=faces" alt="" loading="lazy" decoding="async" />
+              <div><strong>Juliana Ramos, 34</strong><span>Funcional + musculação · 4x/sem</span></div>
+            </div>
+          </article>
+          <article class="result" data-reveal style="--d:.08s">
+            <p class="result-metric">+8 kg<small>de massa muscular em 18 meses</small></p>
+            <blockquote>“Sempre treinei sozinho, copiando treino da internet. Com o Lucas aprendi a progredir carga do jeito certo. Tudo registrado no app, então dá para ver cada semana.”</blockquote>
+            <div class="result-who">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&h=160&q=70&auto=format&fit=crop&crop=faces" alt="" loading="lazy" decoding="async" />
+              <div><strong>Bruno Tavares, 27</strong><span>Musculação · 5x/sem</span></div>
+            </div>
+          </article>
+          <article class="result" data-reveal style="--d:.16s">
+            <p class="result-metric">10 km<small>primeira corrida, após 5 meses</small></p>
+            <blockquote>“Entrei sem conseguir correr 2 km. Spinning para o fôlego, força duas vezes por semana e um plano de corrida montado pelo Rafael. Cruzei a linha em 58 minutos.”</blockquote>
+            <div class="result-who">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=160&h=160&q=70&auto=format&fit=crop&crop=faces" alt="" loading="lazy" decoding="async" />
+              <div><strong>Patrícia Lemos, 41</strong><span>Spinning + força · 4x/sem</span></div>
+            </div>
+          </article>
+        </div>
+        <p class="disclaimer">Resultados individuais, medidos nas avaliações físicas da PULSE. Variam conforme frequência, alimentação, sono e histórico de cada pessoa.</p>
+      </div>
+    </section>
+
+    <!-- ============ PLANOS ============ -->
+    <section class="section plans" id="planos" aria-labelledby="plan-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display h2" id="plan-title" data-reveal>Escolha seu <span class="volt">ritmo.</span></h2>
+          <p class="lead" data-reveal style="--d:.08s">Planos mensais, sem fidelidade e sem taxa de matrícula. Troque de plano quando quiser, direto pelo app.</p>
+        </div>
+
+        <div class="plan-grid">
+          <article class="plan" data-reveal>
+            <h3 class="plan-name">START</h3>
+            <p class="plan-for">Para quem quer treinar força e cardio no próprio ritmo.</p>
+            <div class="plan-price"><span class="cur">R$</span><span class="val">99</span><span class="per">/mês</span></div>
+            <ul>
+              <li><svg><use href="#i-check"/></svg>Musculação e cardio em todo o horário</li>
+              <li><svg><use href="#i-check"/></svg>Avaliação física de entrada</li>
+              <li><svg><use href="#i-check"/></svg>Treino montado por um treinador</li>
+              <li><svg><use href="#i-check"/></svg>App com treino e registro de cargas</li>
+              <li class="off"><svg><use href="#i-minus"/></svg>Aulas coletivas</li>
+              <li class="off"><svg><use href="#i-minus"/></svg>Área de recuperação</li>
+            </ul>
+            <a href="#treino-gratis" class="btn btn--ghost" data-plan="START">Começar agora <svg><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="plan plan--pro" data-reveal style="--d:.08s">
+            <span class="plan-badge">Mais escolhido</span>
+            <h3 class="plan-name">PRO</h3>
+            <p class="plan-for">Para quem quer combinar força com aulas e acompanhamento contínuo.</p>
+            <div class="plan-price"><span class="cur">R$</span><span class="val">149</span><span class="per">/mês</span></div>
+            <ul>
+              <li><svg><use href="#i-check"/></svg>Tudo do START</li>
+              <li><svg><use href="#i-check"/></svg>Aulas ilimitadas: funcional, cross, spinning e HIIT</li>
+              <li><svg><use href="#i-check"/></svg>Reavaliação física a cada 90 dias</li>
+              <li><svg><use href="#i-check"/></svg>Acesso à área de recuperação</li>
+              <li><svg><use href="#i-check"/></svg>Reserva de aulas pelo app</li>
+              <li><svg><use href="#i-check"/></svg>2 convites por mês para trazer alguém</li>
+            </ul>
+            <a href="#treino-gratis" class="btn" data-plan="PRO">Começar agora <svg><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="plan" data-reveal style="--d:.16s">
+            <h3 class="plan-name">ELITE</h3>
+            <p class="plan-for">Para quem treina para performance e quer um treinador por perto.</p>
+            <div class="plan-price"><span class="cur">R$</span><span class="val">219</span><span class="per">/mês</span></div>
+            <ul>
+              <li><svg><use href="#i-check"/></svg>Tudo do PRO</li>
+              <li><svg><use href="#i-check"/></svg>2 sessões de personal por mês</li>
+              <li><svg><use href="#i-check"/></svg>Chat com seu treinador no app</li>
+              <li><svg><use href="#i-check"/></svg>Reavaliação mensal com bioimpedância</li>
+              <li><svg><use href="#i-check"/></svg>Armário fixo e toalhas</li>
+              <li><svg><use href="#i-check"/></svg>Prioridade na reserva de aulas</li>
+            </ul>
+            <a href="#treino-gratis" class="btn btn--ghost" data-plan="ELITE">Começar agora <svg><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+        <p class="plan-note">Não sabe qual escolher? Faça o treino grátis e decida depois de conhecer a estrutura.</p>
+      </div>
+    </section>
+
+    <!-- ============ APP ============ -->
+    <section class="section app" id="app" aria-labelledby="app-title">
+      <div class="wrap app-inner">
+        <div>
+          <h2 class="display" id="app-title" data-reveal>Seu treino também continua <span class="volt">fora da academia.</span></h2>
+          <p class="lead" data-reveal style="--d:.06s">O app PULSE guarda cada série que você faz. Chegue com o treino do dia na mão e acompanhe sua evolução em números, não em impressão.</p>
+          <ul class="features" data-reveal style="--d:.12s">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><div><strong>Acompanhar treino</strong><span>O treino do dia, exercício por exercício, com vídeo de execução.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10v4M6 7v10M18 7v10M21 10v4M6 12h12"/></svg><div><strong>Registrar cargas</strong><span>Anote peso e repetições em dois toques, série por série.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20h18M5 16l4-5 4 3 6-8"/></svg><div><strong>Histórico de evolução</strong><span>Gráficos de carga, medidas e avaliações ao longo dos meses.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><div><strong>Agendamento de aulas</strong><span>Reserve sua vaga no spinning, cross ou HIIT até 48 h antes.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H9l-5 4z"/></svg><div><strong>Contato com treinador</strong><span>Tire dúvidas e peça ajustes sem esperar a próxima aula.</span></div></li>
+          </ul>
+        </div>
+
+        <div class="phones" data-reveal style="--d:.1s" aria-label="Telas do aplicativo PULSE" role="img">
+          <!-- Tela: treino do dia -->
+          <div class="phone phone--a" aria-hidden="true">
+            <div class="phone-screen">
+              <div class="ph-top">
+                <div><div class="ph-kicker">Terça · Treino B</div><div class="ph-title">Inferiores</div></div>
+                <svg class="ph-ring" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="#202427" stroke-width="5"/><circle cx="23" cy="23" r="19" fill="none" stroke="#C8FF2E" stroke-width="5" stroke-dasharray="119.4" stroke-dashoffset="47.8" transform="rotate(-90 23 23)"/><text x="23" y="27" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#F0F1EC">3/5</text></svg>
+              </div>
+              <div class="ph-list">
+                <div class="ph-item"><span class="ph-check done"><svg><use href="#i-check"/></svg></span><div><b>Agachamento livre</b><small>4 × 8</small></div><span class="kg">92 kg</span></div>
+                <div class="ph-item"><span class="ph-check done"><svg><use href="#i-check"/></svg></span><div><b>Leg press 45°</b><small>3 × 12</small></div><span class="kg">220 kg</span></div>
+                <div class="ph-item"><span class="ph-check done"><svg><use href="#i-check"/></svg></span><div><b>Stiff com barra</b><small>3 × 10</small></div><span class="kg">70 kg</span></div>
+                <div class="ph-item"><span class="ph-check"></span><div><b>Cadeira extensora</b><small>3 × 15</small></div><span class="kg">55 kg</span></div>
+                <div class="ph-item"><span class="ph-check"></span><div><b>Panturrilha em pé</b><small>4 × 15</small></div><span class="kg">80 kg</span></div>
+              </div>
+              <div class="ph-btn">Registrar série</div>
+            </div>
+          </div>
+
+          <!-- Tela: evolução -->
+          <div class="phone phone--b" aria-hidden="true">
+            <div class="phone-screen">
+              <div><div class="ph-kicker">Evolução · 12 semanas</div><div class="ph-title">Agachamento</div></div>
+              <div class="ph-card">
+                <div class="ph-big">92 kg<small>+32 kg</small></div>
+                <svg class="ph-chart" viewBox="0 0 220 110" preserveAspectRatio="none">
+                  <path d="M0 27.5H220M0 55H220M0 82.5H220" stroke="#202427" stroke-width="1"/>
+                  <path d="M0 96 L20 92 L40 88 L60 86 L80 78 L100 74 L120 66 L140 60 L160 50 L180 42 L200 30 L220 22 L220 110 L0 110Z" fill="rgba(200,255,46,.12)"/>
+                  <path d="M0 96 L20 92 L40 88 L60 86 L80 78 L100 74 L120 66 L140 60 L160 50 L180 42 L200 30 L220 22" fill="none" stroke="#C8FF2E" stroke-width="2.5"/>
+                  <circle cx="220" cy="22" r="4" fill="#C8FF2E"/>
+                </svg>
+              </div>
+              <div class="ph-card">
+                <div class="ph-row"><div><div class="ph-kicker">Próxima aula</div><b style="font-size:15px">Spinning · 19h00</b></div><span class="ph-pill">3 vagas</span></div>
+              </div>
+              <div class="ph-card">
+                <div class="ph-msg"><img class="ph-avatar" src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=80&h=80&q=60&auto=format&fit=crop&crop=faces" alt="" loading="lazy" /><div class="ph-bubble">Boa! Semana que vem subimos para 95 kg no agachamento.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AULA EXPERIMENTAL ============ -->
+    <section class="section trial" id="treino-gratis" aria-labelledby="trial-title">
+      <svg class="ecg" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+        <path class="ecg-base" pathLength="1000" d="M0 120H420l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H980l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H1440"/>
+        <path class="ecg-sweep" pathLength="1000" d="M0 120H420l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H980l10-12 10 12h12l6 12 10-118 12 164 8-58h30l14-20 14 20H1440"/>
+      </svg>
+      <div class="wrap trial-inner">
+        <div>
+          <h2 class="display" id="trial-title" data-reveal>Seu primeiro treino é por nossa conta.</h2>
+          <p class="lead" data-reveal style="--d:.06s">Conheça nossa estrutura e treine gratuitamente por um dia.</p>
+          <ul class="trial-points" data-reveal style="--d:.12s">
+            <li><svg><use href="#i-check"/></svg>Um treinador acompanha você do início ao fim</li>
+            <li><svg><use href="#i-check"/></svg>Acesso a todas as áreas e a uma aula coletiva</li>
+            <li><svg><use href="#i-check"/></svg>Sem compromisso e sem pedir cartão</li>
+          </ul>
+        </div>
+
+        <div class="form" id="form-box" data-reveal style="--d:.1s">
+          <form id="trial-form" novalidate>
+            <h3>Agende seu treino</h3>
+            <p>Respondemos pelo WhatsApp em até 1 dia útil para marcar o horário.</p>
+
+            <div class="plan-chip" id="plan-chip">
+              <span>Plano de interesse: <b id="plan-chip-name">PRO</b></span>
+              <button type="button" id="plan-chip-clear">Remover</button>
+            </div>
+            <input type="hidden" name="plano" id="plano" />
+
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome completo" required />
+              <span class="err">Informe seu nome.</span>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="whats">WhatsApp</label>
+                <input id="whats" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(11) 90000-0000" required />
+                <span class="err">Informe um WhatsApp com DDD.</span>
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required />
+                <span class="err">Informe um e-mail válido.</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="objetivo">Objetivo</label>
+              <select id="objetivo" name="objetivo" required>
+                <option value="" disabled selected>Selecione seu objetivo</option>
+                <option>Hipertrofia e força</option>
+                <option>Emagrecimento</option>
+                <option>Condicionamento físico</option>
+                <option>Performance esportiva</option>
+                <option>Saúde e qualidade de vida</option>
+              </select>
+              <span class="err">Escolha um objetivo.</span>
+            </div>
+            <button type="submit" class="btn">Quero meu treino grátis <svg><use href="#i-arrow"/></svg></button>
+            <p class="form-legal">Usamos seus dados só para agendar o treino. Nada de spam.</p>
+          </form>
+
+          <div class="form-success" role="status" aria-live="polite">
+            <div class="ok"><svg><use href="#i-check"/></svg></div>
+            <h3 id="success-title">Treino reservado.</h3>
+            <p id="success-text">Nossa equipe chama você no WhatsApp em até 1 dia útil para combinar dia e horário.</p>
+            <button type="button" class="arrow-link" id="form-reset">Agendar para outra pessoa <svg><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq-inner">
+        <div class="faq-side">
+          <h2 class="display h2" id="faq-title" data-reveal>Perguntas <span class="volt">frequentes.</span></h2>
+          <p class="lead" data-reveal style="--d:.06s">Não encontrou o que procura? Fale com a recepção pelo WhatsApp.</p>
+          <a class="arrow-link" href="https://wa.me/5511900000000" target="_blank" rel="noopener" data-reveal style="--d:.1s">Chamar no WhatsApp <svg><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="faq-list" data-reveal style="--d:.08s">
+          <details class="faq-item">
+            <summary>A academia abre aos finais de semana?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Sim. Aos sábados funcionamos das 07h às 18h e aos domingos das 08h às 14h, com treinadores no salão nos dois dias.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Existe fidelidade?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Não nos planos mensais. Se preferir, o plano anual tem 15% de desconto sobre o valor mensal, com permanência mínima de 12 meses.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Posso fazer uma aula experimental?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Pode. O primeiro treino é gratuito, com um treinador acompanhando e acesso a todas as áreas. É só preencher o formulário acima e escolher o horário com a nossa equipe.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Há acompanhamento de profissionais?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Sim, em todos os horários. Todo aluno faz avaliação física na entrada, recebe um programa montado por um treinador e tem reavaliações conforme o plano escolhido.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Possui estacionamento?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Sim. São 60 vagas cobertas, com 2 horas gratuitas para alunos, além de bicicletário com 30 vagas.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Posso cancelar o plano?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-answer"><p>Pode, a qualquer momento, pelo app ou na recepção. Nos planos mensais não há multa, e o acesso continua até o fim do período já pago.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contato">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a href="#top" class="logo" aria-label="PULSE Training Club — início">
+            <span class="logo-mark" style="color:var(--ink)"><svg><use href="#i-pulse"/></svg></span>
+            <span class="logo-word">PULSE</span>
+          </a>
+          <p style="margin-top:20px;max-width:32ch">PULSE Training Club. Musculação, treinamento funcional, condicionamento e performance.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg><use href="#i-tt"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>
+            <a href="https://wa.me/5511900000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Endereço</h4>
+          <p>Rua Voltaire Lima, 1200<br />Vila Olímpia · São Paulo, SP<br />04551-000</p>
+          <p style="margin-top:16px"><a href="tel:+5511900000000">(11) 90000-0000</a><br /><a href="mailto:contato@pulsetraining.com.br">contato@pulsetraining.com.br</a></p>
+        </div>
+        <div>
+          <h4>Horários</h4>
+          <div class="hours">
+            <div>Segunda a sexta <b>05h–23h</b></div>
+            <div>Sábado <b>07h–18h</b></div>
+            <div>Domingo <b>08h–14h</b></div>
+          </div>
+        </div>
+        <div>
+          <h4>Navegar</h4>
+          <ul>
+            <li><a href="#estrutura">Estrutura</a></li>
+            <li><a href="#modalidades">Modalidades</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#treinadores">Treinadores</a></li>
+            <li><a href="#treino-gratis">Treino grátis</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-word" aria-hidden="true"><span>Pulse</span><svg viewBox="0 0 32 32"><use href="#i-pulse"/></svg></div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> PULSE Training Club. Projeto conceitual de portfólio; marca, pessoas e dados são fictícios.</span>
+        <span>Fotos: Unsplash</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta" id="mobile-cta">
+    <a href="#treino-gratis" class="btn">Agendar treino grátis <svg><use href="#i-arrow"/></svg></a>
+  </div>
+
+  <script>
+  (() => {
+    const $ = (s, c = document) => c.querySelector(s);
+    const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- Navbar ---------- */
+    const nav = $('#nav');
+    const burger = $('#burger');
+    const menu = $('#mobile-menu');
+    const setMenu = (open) => {
+      burger.setAttribute('aria-expanded', open);
+      burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      menu.classList.toggle('is-open', open);
+      menu.setAttribute('aria-hidden', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    burger.addEventListener('click', () => setMenu(burger.getAttribute('aria-expanded') !== 'true'));
+    $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+    addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+    // link ativo
+    const links = $$('.nav-links a');
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + en.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['estrutura', 'modalidades', 'planos', 'treinadores', 'contato'].forEach(id => { const el = document.getElementById(id); el && spy.observe(el); });
+
+    /* ---------- Reveal ---------- */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    $$('[data-reveal]').forEach(el => io.observe(el));
+
+    /* ---------- Contadores ---------- */
+    const fmt = new Intl.NumberFormat('pt-BR');
+    const countUp = (el) => {
+      const target = +el.dataset.count;
+      if (reduce) { el.textContent = fmt.format(target); return; }
+      const dur = 1600, t0 = performance.now();
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 4);
+        el.textContent = fmt.format(Math.round(target * eased));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const cio = new IntersectionObserver(entries => {
+      entries.forEach(en => { if (en.isIntersecting) { setTimeout(() => countUp(en.target), 500); cio.unobserve(en.target); } });
+    }, { threshold: .6 });
+    $$('[data-count]').forEach(el => cio.observe(el));
+
+    /* ---------- Scroll: navbar, parallax, palavras, CTA mobile ---------- */
+    const heroMedia = $('#hero-media');
+    const drift = $$('[data-drift]');
+    const manifesto = $('.manifesto');
+    const parallax = $$('[data-parallax]');
+    const mcta = $('#mobile-cta');
+    const trial = $('#treino-gratis');
+    const hero = $('.hero');
+    let ticking = false;
+
+    const onScroll = () => {
+      const y = scrollY, vh = innerHeight;
+      nav.classList.toggle('is-scrolled', y > 8);
+
+      // CTA mobile: aparece depois do hero, some sobre o formulário
+      const tr = trial.getBoundingClientRect();
+      const trialVisible = tr.top < vh && tr.bottom > 0;
+      mcta.classList.toggle('is-on', y > hero.offsetHeight * .7 && !trialVisible);
+
+      if (!reduce) {
+        if (y < vh * 1.2) heroMedia.style.transform = `translate3d(0, ${y * .25}px, 0)`;
+        const r = manifesto.getBoundingClientRect();
+        if (r.top < vh && r.bottom > 0) {
+          const p = (vh - r.top) / (vh + r.height); // 0 → 1
+          drift.forEach(el => { el.style.transform = `translate3d(${(p - .5) * 36 * +el.dataset.drift - 8}%, 0, 0)`; });
+        }
+        parallax.forEach(img => {
+          const b = img.parentElement.getBoundingClientRect();
+          if (b.top < vh && b.bottom > 0) {
+            const p = (b.top + b.height / 2 - vh / 2) / vh;
+            img.style.transform = `translate3d(0, ${p * -100 * +img.dataset.parallax - 7}%, 0)`;
+          }
+        });
+      }
+      ticking = false;
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+    addEventListener('resize', onScroll);
+    onScroll();
+
+    /* ---------- Modalidades: saiba mais ---------- */
+    $$('.mod-card').forEach(card => {
+      const open = $('[data-more]', card), close = $('[data-close]', card);
+      const set = (v) => {
+        card.classList.toggle('is-open', v);
+        open.setAttribute('aria-expanded', v);
+        if (v) close.focus({ preventScroll: true }); else open.focus({ preventScroll: true });
+      };
+      open.addEventListener('click', () => set(true));
+      close.addEventListener('click', () => set(false));
+      card.addEventListener('keydown', e => { if (e.key === 'Escape' && card.classList.contains('is-open')) set(false); });
+    });
+
+    /* ---------- Galeria ---------- */
+    const gal = $('#gallery'), prev = $('#gal-prev'), next = $('#gal-next'), bar = $('#gal-bar'), count = $('#gal-count');
+    const items = $$('.area', gal);
+    const pad = n => String(n).padStart(2, '0');
+    const step = () => items[1].offsetLeft - items[0].offsetLeft;
+    const updateGal = () => {
+      const max = gal.scrollWidth - gal.clientWidth;
+      const p = max > 0 ? gal.scrollLeft / max : 0;
+      bar.style.width = `${Math.max(1 / items.length, p) * 100}%`;
+      const idx = Math.min(items.length, Math.round(gal.scrollLeft / step()) + 1);
+      count.textContent = `${pad(p > .98 ? items.length : idx)} / ${pad(items.length)}`;
+      prev.disabled = gal.scrollLeft < 4;
+      next.disabled = gal.scrollLeft > max - 4;
+    };
+    prev.addEventListener('click', () => gal.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }));
+    next.addEventListener('click', () => gal.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }));
+    gal.addEventListener('scroll', updateGal, { passive: true });
+    gal.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev.click(); }
+    });
+    // arrastar com mouse
+    let down = false, sx = 0, sl = 0, moved = false;
+    gal.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = gal.scrollLeft; });
+    addEventListener('pointermove', e => {
+      if (!down) return;
+      const dx = e.clientX - sx;
+      if (Math.abs(dx) > 4) { moved = true; gal.classList.add('is-dragging'); }
+      gal.scrollLeft = sl - dx;
+    });
+    addEventListener('pointerup', () => {
+      if (!down) return; down = false;
+      if (moved) {
+        gal.classList.remove('is-dragging');
+        const i = Math.round(gal.scrollLeft / step());
+        gal.scrollTo({ left: i * step(), behavior: reduce ? 'auto' : 'smooth' });
+      }
+    });
+    updateGal();
+
+    /* ---------- Planos / modalidades → formulário ---------- */
+    const planoInput = $('#plano'), chip = $('#plan-chip'), chipName = $('#plan-chip-name');
+    $$('[data-plan]').forEach(b => b.addEventListener('click', () => {
+      planoInput.value = b.dataset.plan; chipName.textContent = b.dataset.plan; chip.classList.add('is-on');
+    }));
+    $('#plan-chip-clear').addEventListener('click', () => { planoInput.value = ''; chip.classList.remove('is-on'); });
+    $$('[data-goal]').forEach(b => b.addEventListener('click', () => {
+      const sel = $('#objetivo'); sel.value = b.dataset.goal;
+      b.closest('.mod-card')?.classList.remove('is-open');
+    }));
+
+    /* ---------- Formulário ---------- */
+    const form = $('#trial-form'), box = $('#form-box');
+    const whats = $('#whats');
+    whats.addEventListener('input', () => {
+      const d = whats.value.replace(/\D/g, '').slice(0, 11);
+      let v = d;
+      if (d.length > 2) v = `(${d.slice(0, 2)}) ${d.slice(2)}`;
+      if (d.length > 7) v = `(${d.slice(0, 2)}) ${d.slice(2, d.length === 11 ? 7 : 6)}-${d.slice(d.length === 11 ? 7 : 6)}`;
+      whats.value = v;
+    });
+    const rules = {
+      nome: v => v.trim().length >= 2,
+      whatsapp: v => v.replace(/\D/g, '').length >= 10,
+      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()),
+      objetivo: v => !!v,
+    };
+    const check = (el) => {
+      const ok = rules[el.name](el.value);
+      el.closest('.field').classList.toggle('has-error', !ok);
+      el.setAttribute('aria-invalid', !ok);
+      return ok;
+    };
+    $$('input:not([type=hidden]), select', form).forEach(el => {
+      el.addEventListener('blur', () => { if (el.value) check(el); });
+      el.addEventListener('input', () => { if (el.closest('.field').classList.contains('has-error')) check(el); });
+      el.addEventListener('change', () => { if (el.closest('.field').classList.contains('has-error')) check(el); });
+    });
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const fields = $$('input:not([type=hidden]), select', form);
+      const bad = fields.filter(el => !check(el));
+      if (bad.length) { bad[0].focus(); return; }
+      // Projeto conceitual: aqui entraria o envio para o CRM / WhatsApp da academia.
+      const first = $('#nome').value.trim().split(/\s+/)[0];
+      $('#success-title').textContent = `Treino reservado, ${first}.`;
+      box.classList.add('is-done');
+      box.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      $('#form-reset').focus({ preventScroll: true });
+    });
+    $('#form-reset').addEventListener('click', () => {
+      form.reset(); planoInput.value = ''; chip.classList.remove('is-on');
+      box.classList.remove('is-done'); $('#nome').focus();
+    });
+
+    $('#year').textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>
